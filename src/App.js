@@ -4,6 +4,7 @@ import React, { useState, Profiler, useEffect } from 'react';
 import Counter from './Components/Counter';
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Todo from './Components/Todo';
+import Cart from './Components/Cart';
 function App() {
 
   const router = createBrowserRouter([
@@ -14,6 +15,10 @@ function App() {
     {
       path: "/todo",
       element: <Todo />,
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
     }
   ]);
 
