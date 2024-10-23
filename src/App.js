@@ -1,17 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, Profiler, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { INCREMENT, DECREMENT } from './features/Count/Action';
-
+import Counter from './Components/Counter';
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Todo from './Components/Todo';
 function App() {
 
-  const count = useSelector((state) => state.count);
-  const dispatch = useDispatch();
-
-  const handleClick = (action) => {
-    dispatch({ type: action });
-  }
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Counter />,
+    },
+    {
+      path: "/todo",
+      element: <Todo />,
+    }
+  ]);
 
   useEffect(() => {
 
@@ -36,10 +40,7 @@ function App() {
   return (
     <div className="App">
       <Profiler id="App" onRender={onRenderCallback}>
-        <h1>Hello World</h1>
-        <h1>Count value is {count}</h1>
-        <button onClick={() => handleClick(INCREMENT)}>INCREMENT</button> ||
-        <button onClick={() => handleClick(DECREMENT)}>DECREMENT</button>
+          <RouterProvider router={router} />
       </Profiler>
 
     </div>
