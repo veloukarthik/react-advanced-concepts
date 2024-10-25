@@ -1,5 +1,7 @@
+import HighOrderComponent from "../HOC/HighOrderComponent";
 import { INCREMENT, DECREMENT } from "../features/Count/Action";
 import { useSelector, useDispatch } from "react-redux";
+
 
 function Counter() {
     const count = useSelector((state) => state.counter.count);
@@ -15,4 +17,4 @@ function Counter() {
     </div> );
 }
 
-export default Counter;
+export default HighOrderComponent(Counter);
