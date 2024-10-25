@@ -5,6 +5,9 @@ import Counter from './Components/Counter';
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Todo from './Components/Todo';
 import Cart from './Components/Cart';
+import Posts from './Components/Posts';
+import Users from './Components/Users';
+
 function App() {
 
   const router = createBrowserRouter([
@@ -19,6 +22,14 @@ function App() {
     {
       path: "/cart",
       element: <Cart />,
+    },
+    {
+      path: "/posts",
+      element: <Posts />,
+    },
+    {
+      path: "/users",
+      element: <Users />,
     }
   ]);
 
