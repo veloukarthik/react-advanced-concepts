@@ -7,6 +7,9 @@ import Todo from './Components/Todo';
 import Cart from './Components/Cart';
 import Posts from './Components/Posts';
 import Users from './Components/Users';
+import UserHook from './Components/UserHook';
+import CustomHooks from './Components/CustomHooks';
+
 
 function App() {
 
@@ -18,6 +21,14 @@ function App() {
     {
       path: "/todo",
       element: <Todo />,
+    },
+    {
+      path:"/user",
+      element: <UserHook />,
+    },
+    {
+      path:"/customhooks",
+      element: <CustomHooks />,
     },
     {
       path: "/cart",
