@@ -9,7 +9,8 @@ import Posts from './Components/Posts';
 import Users from './Components/Users';
 import UserHook from './Components/UserHook';
 import CustomHooks from './Components/CustomHooks';
-
+import Fiber from './Components/Fiber';
+import Reference from './Components/Reference';
 
 function App() {
 
@@ -35,12 +36,20 @@ function App() {
       element: <Cart />,
     },
     {
+      path: "/reference",
+      element: <Reference />,
+    },
+    {
       path: "/posts",
       element: <Posts />,
     },
     {
       path: "/users",
       element: <Users />,
+    },
+    {
+      path: "/fiber",
+      element: <Fiber />,
     }
   ]);
 
