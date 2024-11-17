@@ -11,6 +11,9 @@ import UserHook from './Components/UserHook';
 import CustomHooks from './Components/CustomHooks';
 import Fiber from './Components/Fiber';
 import Reference from './Components/Reference';
+import ReducerHook from './Components/Hooks/ReducerHookCounter';
+import ReducerShoppingCart from './Components/Hooks/ReducerShoppingCart';
+
 
 function App() {
 
@@ -30,6 +33,14 @@ function App() {
     {
       path:"/customhooks",
       element: <CustomHooks />,
+    },
+    {
+      path:"/reducer-hook",
+      element:<ReducerHook />
+    },
+    {
+      path:'shopping-cart',
+      element:<ReducerShoppingCart />
     },
     {
       path: "/cart",
