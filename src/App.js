@@ -13,6 +13,8 @@ import Fiber from './Components/Fiber';
 import Reference from './Components/Reference';
 import ReducerHook from './Components/Hooks/ReducerHookCounter';
 import ReducerShoppingCart from './Components/Hooks/ReducerShoppingCart';
+import ReducerAuthentication from './Components/Hooks/ReducerAuthentication';
+import ReducerMultiStepForm from './Components/Hooks/ReducerMultiStepForm';
 
 
 function App() {
@@ -39,7 +41,15 @@ function App() {
       element:<ReducerHook />
     },
     {
-      path:'shopping-cart',
+      path:'/reducer-auth',
+      element:<ReducerAuthentication />
+    },
+    {
+      path:'/multistep-form',
+      element:<ReducerMultiStepForm />
+    },
+    {
+      path:'/shopping-cart',
       element:<ReducerShoppingCart />
     },
     {

@@ -11,6 +11,7 @@ function authReducer(state, action) {
         case "LOGIN_SUCCESS":
             return { ...state, isAuthenticated: true, user: action.payload, error: null };
         case "LOGIN_FAILURE":
+            console.log("error",action.error);
             return { ...state, isAuthenticated: false, user: null, error: action.error };
         case "LOGOUT":
             return { ...state, isAuthenticated: false, user: null, error: null };
@@ -26,6 +27,8 @@ function ReducerAuthentication() {
         // Simulate an API call
         const user = { name: "John Doe", email: "john@example.com" };
         dispatch({ type: "LOGIN_SUCCESS", payload: user });
+        // const error = "User not authenticated"
+        // dispatch({ type: "LOGIN_FAILURE", error: error })
     };
 
     const logout = () => {
@@ -50,4 +53,4 @@ function ReducerAuthentication() {
     );
 }
 
-export default ReducerAuthentication ;
+export default ReducerAuthentication;
