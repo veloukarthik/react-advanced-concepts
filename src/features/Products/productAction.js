@@ -41,7 +41,12 @@ export const fetchProduct = (id) =>{
             const response = await fetch(`https://fakestoreapi.com/products/${id}`);
             const data = await response.json();
             console.log("Data1",data);
-            dispatch(fetchProductsSuccess(data));
+            if(data)
+            {
+                dispatch(fetchProductsSuccess(data));
+                return;
+            }
+            dispatch(fetchProductsFailed('There is no product related to id'));
             console.log("Data2",data);
           }, 2000);
         } catch (error) {
