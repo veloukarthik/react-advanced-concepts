@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, Profiler, useEffect } from 'react';
 import Counter from './Components/Counter';
-import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom'
 import Todo from './Components/Todo';
 import Cart from './Components/Cart';
 import Posts from './Components/Posts';
@@ -15,11 +15,17 @@ import ReducerHook from './Components/Hooks/ReducerHookCounter';
 import ReducerShoppingCart from './Components/Hooks/ReducerShoppingCart';
 import ReducerAuthentication from './Components/Hooks/ReducerAuthentication';
 import ReducerMultiStepForm from './Components/Hooks/ReducerMultiStepForm';
+import MemoFilterList from './Components/Hooks/MemoFilterList';
+import MemoChildRender from './Components/Hooks/MemoChildRender';
+import { AppProvider } from './Components/Hooks/AppContext';
+import Profile from './Components/Profile';
+import Products from './Components/Products';
+import ViewProduct from './Components/ViewProduct';
 
 
 function App() {
 
-  const router = createBrowserRouter([
+  const routes = [
     {
       path: "/",
       element: <Counter />,
@@ -29,28 +35,40 @@ function App() {
       element: <Todo />,
     },
     {
-      path:"/user",
+      path: "/user",
       element: <UserHook />,
     },
     {
-      path:"/customhooks",
+      path: "/profile",
+      element: <Profile />
+    },
+    {
+      path: "/memochild-render",
+      element: <MemoChildRender />
+    },
+    {
+      path: "/memofilter-list",
+      element: <MemoFilterList />
+    },
+    {
+      path: "/customhooks",
       element: <CustomHooks />,
     },
     {
-      path:"/reducer-hook",
-      element:<ReducerHook />
+      path: "/reducer-hook",
+      element: <ReducerHook />
     },
     {
-      path:'/reducer-auth',
-      element:<ReducerAuthentication />
+      path: '/reducer-auth',
+      element: <ReducerAuthentication />
     },
     {
-      path:'/multistep-form',
-      element:<ReducerMultiStepForm />
+      path: '/multistep-form',
+      element: <ReducerMultiStepForm />
     },
     {
-      path:'/shopping-cart',
-      element:<ReducerShoppingCart />
+      path: '/shopping-cart',
+      element: <ReducerShoppingCart />
     },
     {
       path: "/cart",
@@ -65,6 +83,14 @@ function App() {
       element: <Posts />,
     },
     {
+      path: '/products',
+      element: <Products />
+    },
+    {
+      path: '/view-products/:id',
+      element: <ViewProduct />
+    },
+    {
       path: "/users",
       element: <Users />,
     },
@@ -72,7 +98,9 @@ function App() {
       path: "/fiber",
       element: <Fiber />,
     }
-  ]);
+  ];
+
+  const router = createBrowserRouter(routes);
 
   useEffect(() => {
 
@@ -95,12 +123,14 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Profiler id="App" onRender={onRenderCallback}>
+    <AppProvider>
+      <div className="App">
+        <Profiler id="App" onRender={onRenderCallback}>
           <RouterProvider router={router} />
-      </Profiler>
+        </Profiler>
 
-    </div>
+      </div>
+    </AppProvider>
   );
 }
 
