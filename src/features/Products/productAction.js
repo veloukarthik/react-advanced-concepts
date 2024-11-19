@@ -23,9 +23,7 @@ export const fetchProducts = () =>{
           setTimeout(async () => {
             const response = await fetch('https://fakestoreapi.com/products');
             const data = await response.json();
-            console.log("Data1",data);
             dispatch(fetchProductsSuccess(data));
-            console.log("Data2",data);
           }, 2000);
         } catch (error) {
           dispatch(fetchProductsFailed(error));
@@ -40,14 +38,12 @@ export const fetchProduct = (id) =>{
           setTimeout(async () => {
             const response = await fetch(`https://fakestoreapi.com/products/${id}`);
             const data = await response.json();
-            console.log("Data1",data);
             if(data)
             {
                 dispatch(fetchProductsSuccess(data));
                 return;
             }
             dispatch(fetchProductsFailed('There is no product related to id'));
-            console.log("Data2",data);
           }, 2000);
         } catch (error) {
           dispatch(fetchProductsFailed(error));

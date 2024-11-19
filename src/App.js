@@ -115,11 +115,11 @@ function App() {
     commitTime, // When React committed this update
     interactions // The Set of interactions belonging to this update
   ) => {
-    console.log(`Profiler ${id} [${phase}]:`);
-    console.log(`Actual duration: ${actualDuration}`);
-    console.log(`Base duration: ${baseDuration}`);
-    console.log(`Start time: ${startTime}`);
-    console.log(`Commit time: ${commitTime}`);
+    // console.log(`Profiler ${id} [${phase}]:`);
+    // console.log(`Actual duration: ${actualDuration}`);
+    // console.log(`Base duration: ${baseDuration}`);
+    // console.log(`Start time: ${startTime}`);
+    // console.log(`Commit time: ${commitTime}`);
   };
 
   return (
