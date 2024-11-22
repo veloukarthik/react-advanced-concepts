@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState, Profiler, useEffect } from 'react';
+import React, {  Profiler, useEffect } from 'react';
 import Counter from './Components/Counter';
 import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom'
 import Todo from './Components/Todo';
@@ -21,6 +20,7 @@ import { AppProvider } from './Components/Hooks/AppContext';
 import Profile from './Components/Profile';
 import Products from './Components/Products';
 import ViewProduct from './Components/ViewProduct';
+import Concurrency from './Components/Hooks/Concurrency';
 
 
 function App() {
@@ -57,6 +57,10 @@ function App() {
     {
       path: "/reducer-hook",
       element: <ReducerHook />
+    },
+    {
+      path:"/concurrency",
+      element:<Concurrency />
     },
     {
       path: '/reducer-auth',
