@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navbar } from '../Components/Navbar';
 
 
 function HighOrderComponent(WrappedComponent) {
@@ -6,7 +7,15 @@ function HighOrderComponent(WrappedComponent) {
     const HighOrderComponents = (props) => {
         return (
             <div>
-                <h1>High Order Component tested</h1>
+                <ul style={{ display: 'flex', overflow: "scroll", listStyle: "none", "width": "80%", height: "50px" }}>
+                    {Navbar && Navbar.map((value, index) => {
+                        return (
+                            <li style={{ padding: "5px" }} key={index}>
+                                <a href={value.path}>{value.name}</a>
+                            </li>
+                        )
+                    })}
+                </ul>
                 <WrappedComponent {...props} />
             </div>
         );

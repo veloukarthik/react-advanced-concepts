@@ -1,5 +1,5 @@
 import './App.css';
-import React, {  Profiler, useEffect } from 'react';
+import React, { Profiler, useEffect } from 'react';
 import Counter from './Components/Counter';
 import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom'
 import Todo from './Components/Todo';
@@ -21,7 +21,7 @@ import Profile from './Components/Profile';
 import Products from './Components/Products';
 import ViewProduct from './Components/ViewProduct';
 import Concurrency from './Components/Hooks/Concurrency';
-
+import HighOrderComponent from './HOC/HighOrderComponent'
 
 function App() {
 
@@ -59,8 +59,8 @@ function App() {
       element: <ReducerHook />
     },
     {
-      path:"/concurrency",
-      element:<Concurrency />
+      path: "/concurrency",
+      element: <Concurrency />
     },
     {
       path: '/reducer-auth',
@@ -128,7 +128,8 @@ function App() {
 
   return (
     <AppProvider>
-      <div className="App">
+      <div className="App" style={{padding:"10px"}}>
+        
         <Profiler id="App" onRender={onRenderCallback}>
           <RouterProvider router={router} />
         </Profiler>
@@ -138,4 +139,4 @@ function App() {
   );
 }
 
-export default App;
+export default HighOrderComponent(App);
