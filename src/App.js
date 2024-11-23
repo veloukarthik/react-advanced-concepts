@@ -1,7 +1,7 @@
 import './App.css';
-import React, { Profiler, useEffect } from 'react';
+import React, { Profiler, useEffect,memo } from 'react';
 import Counter from './Components/Counter';
-import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Todo from './Components/Todo';
 import Cart from './Components/Cart';
 import Posts from './Components/Posts';
@@ -139,4 +139,4 @@ function App() {
   );
 }
 
-export default HighOrderComponent(App);
+export default memo(HighOrderComponent(App));
