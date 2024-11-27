@@ -22,6 +22,8 @@ import Products from './Components/Products';
 import ViewProduct from './Components/ViewProduct';
 import Concurrency from './Components/Hooks/Concurrency';
 import HighOrderComponent from './HOC/HighOrderComponent'
+import WebSocketChat from './Components/WebSocketChat';
+
 
 function App() {
 
@@ -29,6 +31,10 @@ function App() {
     {
       path: "/",
       element: <Counter />,
+    },
+    {
+      path:"chat",
+      element:<WebSocketChat />
     },
     {
       path: "/todo",
