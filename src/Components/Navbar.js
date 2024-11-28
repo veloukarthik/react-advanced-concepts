@@ -8,6 +8,14 @@ export const Navbar = [
       name: 'Todo',
     },
     {
+      path:'/chat',
+      name:'Chat'
+    },
+    { 
+      path:'/ref',
+      name:'RefHook'
+    },
+    {
       path: "/user",
       name: 'UserHook',
     },

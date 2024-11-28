@@ -37,8 +37,12 @@ function Cart() {
 
     const getTotalPrice = () =>{
         let total = 0;
+        console.log("carts",carts);
         carts && carts.filter((value,index)=>{
-            total = total+(value.price*value.quantity);
+            let quantity = getQuantity(value.productId)
+            let price = value.price;
+            console.log("cart quantity ",quantity*price);
+            total = total+(value.price*quantity);
         })
         return total.toFixed(2);
     }

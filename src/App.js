@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Profiler, useEffect,memo } from 'react';
+import React, { Profiler, useEffect, memo, useContext } from 'react';
 import Counter from './Components/Counter';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Todo from './Components/Todo';
@@ -16,13 +16,16 @@ import ReducerAuthentication from './Components/Hooks/ReducerAuthentication';
 import ReducerMultiStepForm from './Components/Hooks/ReducerMultiStepForm';
 import MemoFilterList from './Components/Hooks/MemoFilterList';
 import MemoChildRender from './Components/Hooks/MemoChildRender';
-import { AppProvider } from './Components/Hooks/AppContext';
+import AppContext, { AppProvider } from './Components/Hooks/AppContext';
 import Profile from './Components/Profile';
 import Products from './Components/Products';
 import ViewProduct from './Components/ViewProduct';
 import Concurrency from './Components/Hooks/Concurrency';
 import HighOrderComponent from './HOC/HighOrderComponent'
 import WebSocketChat from './Components/WebSocketChat';
+import ErrorBoundary from './Components/ErrorBoundary'
+import RefHook from './Components/Hooks/RefHook';
+
 
 
 function App() {
@@ -33,12 +36,16 @@ function App() {
       element: <Counter />,
     },
     {
-      path:"chat",
-      element:<WebSocketChat />
+      path: "chat",
+      element: <WebSocketChat />
     },
     {
       path: "/todo",
       element: <Todo />,
+    },
+    {
+      path:"/ref",
+      element:<RefHook />
     },
     {
       path: "/user",
@@ -125,22 +132,22 @@ function App() {
     commitTime, // When React committed this update
     interactions // The Set of interactions belonging to this update
   ) => {
-    // console.log(`Profiler ${id} [${phase}]:`);
-    // console.log(`Actual duration: ${actualDuration}`);
-    // console.log(`Base duration: ${baseDuration}`);
-    // console.log(`Start time: ${startTime}`);
-    // console.log(`Commit time: ${commitTime}`);
+    console.log(`Profiler ${id} [${phase}]:`);
+    console.log(`Actual duration: ${actualDuration}`);
+    console.log(`Base duration: ${baseDuration}`);
+    console.log(`Start time: ${startTime}`);
+    console.log(`Commit time: ${commitTime}`);
   };
 
   return (
     <AppProvider>
-      <div className="App" style={{padding:"10px"}}>
-        
-        <Profiler id="App" onRender={onRenderCallback}>
-          <RouterProvider router={router} />
-        </Profiler>
-
-      </div>
+      <ErrorBoundary>
+        <div className="App" style={{ padding: "10px" }}>
+          <Profiler id="App" onRender={onRenderCallback}>
+            <RouterProvider router={router} />
+          </Profiler>
+        </div>
+      </ErrorBoundary>
     </AppProvider>
   );
 }

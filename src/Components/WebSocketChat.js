@@ -4,12 +4,14 @@ const WebSocketChat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [socket, setSocket] = useState(null);
+  const [error,setError] = useState("");
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:8080");
 
     // Set up WebSocket handlers
     ws.onopen = () => {
+      setError("");
       console.log("Connected to WebSocket");
     };
 
@@ -18,10 +20,12 @@ const WebSocketChat = () => {
     };
 
     ws.onclose = () => {
+      setError("Websocket connection closed")
       console.log("WebSocket connection closed");
     };
 
     ws.onerror = (error) => {
+      setError(error.message);
       console.error("WebSocket error:", error);
     };
 
@@ -53,7 +57,8 @@ const WebSocketChat = () => {
         onChange={(e) => setInput(e.target.value)}
         placeholder="Type a message..."
       />
-      <button onClick={sendMessage}>Send</button>
+      <button disabled={error ? true : false} onClick={sendMessage}>Send</button>
+      {error ? <div>{error}</div> : ""}
     </div>
   );
 };

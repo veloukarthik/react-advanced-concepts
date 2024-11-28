@@ -2,11 +2,16 @@ import { useContext } from 'react'
 import AppContext from './Hooks/AppContext'
 
 
+
 const Profile = () => {
-    const { user, setUser } = useContext(AppContext);
+    const { user, setUser, theme,setTheme } = useContext(AppContext);
+
+    const color = theme=="light" ? "lightblue" : "black";
+
+    const textColor = theme=="light" ? "black" : "white";
 
     return (
-        <div>
+        <div style={{backgroundColor:color,color:textColor}}>
             <h1>Profile Component</h1>
             {user ? (
                 <div>
@@ -23,7 +28,9 @@ const Profile = () => {
                     </button>
                 </div>
             )}
-
+            <button style={{border:"none",background:color,color:textColor,border:"2px solid red",borderRadius:"10px"}} onClick={() => theme == 'light' ? setTheme('dark') : setTheme('light')}>
+                {theme=="light" ? "Dark" : "Light" } mode
+            </button>
 
         </div>
     );
