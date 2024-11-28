@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Profiler, useEffect, memo, useContext } from 'react';
+import React, { Profiler, useEffect, memo } from 'react';
 import Counter from './Components/Counter';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Todo from './Components/Todo';
@@ -16,7 +16,7 @@ import ReducerAuthentication from './Components/Hooks/ReducerAuthentication';
 import ReducerMultiStepForm from './Components/Hooks/ReducerMultiStepForm';
 import MemoFilterList from './Components/Hooks/MemoFilterList';
 import MemoChildRender from './Components/Hooks/MemoChildRender';
-import AppContext, { AppProvider } from './Components/Hooks/AppContext';
+import { AppProvider } from './Components/Hooks/AppContext';
 import Profile from './Components/Profile';
 import Products from './Components/Products';
 import ViewProduct from './Components/ViewProduct';
@@ -25,6 +25,8 @@ import HighOrderComponent from './HOC/HighOrderComponent'
 import WebSocketChat from './Components/WebSocketChat';
 import ErrorBoundary from './Components/ErrorBoundary'
 import RefHook from './Components/Hooks/RefHook';
+import Buttons from './Components/Button';
+
 
 
 
@@ -46,6 +48,10 @@ function App() {
     {
       path:"/ref",
       element:<RefHook />
+    },
+    {
+      path:"/buttons",
+      element:<Buttons />
     },
     {
       path: "/user",
@@ -143,6 +149,7 @@ function App() {
     <AppProvider>
       <ErrorBoundary>
         <div className="App" style={{ padding: "10px" }}>
+          {/* Primary Button */}
           <Profiler id="App" onRender={onRenderCallback}>
             <RouterProvider router={router} />
           </Profiler>

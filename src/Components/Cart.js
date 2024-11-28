@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../features/Cart/CartAction";
+import {  REMOVE_FROM_CART } from "../features/Cart/CartAction";
 import { fetchProducts } from '../features/Products/productAction';
 
 function Cart() {
@@ -30,7 +30,7 @@ function Cart() {
     }, [carts, products]);
 
     const getQuantity = (pid) =>{
-        let data = carts.find((cart)=> cart.productId == pid);
+        let data = carts.find((cart)=> cart.productId === pid);
         console.log("quant",carts);
         return data.quantity;
     }
