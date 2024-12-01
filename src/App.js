@@ -26,7 +26,7 @@ import WebSocketChat from './Components/WebSocketChat';
 import ErrorBoundary from './Components/ErrorBoundary'
 import RefHook from './Components/Hooks/RefHook';
 import Buttons from './Components/Button';
-
+import ChildComponent from './Components/ChildComponent';
 
 
 
@@ -44,6 +44,10 @@ function App() {
     {
       path: "/todo",
       element: <Todo />,
+    },
+    {
+      path:"/child",
+      element:<ChildComponent />
     },
     {
       path:"/ref",
