@@ -32,7 +32,7 @@ function Child({ todo, handleClick, input, todoEdit }) {
         todo.map((value, index) => (
           <li key={index} style={{marginBottom: '10px'}}>
             {value} &nbsp;
-            <button  onClick={() => updateTodo(value, index)}>&#9998;</button>&nbsp;&nbsp;
+            <button  onClick={() => updateTodo(value, index)} style={{rotate:"90deg"}}>&#9998;</button>&nbsp;&nbsp;
             <button onClick={() => handleClick('',index)}>&times;</button>
           </li>
         ))}
