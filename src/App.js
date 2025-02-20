@@ -27,7 +27,7 @@ import ErrorBoundary from './Components/ErrorBoundary'
 import RefHook from './Components/Hooks/RefHook';
 import Buttons from './Components/Button';
 import ChildComponent from './Components/ChildComponent';
-
+import useOnlineStatus from './Components/Hooks/useOnline';
 
 
 function App() {
@@ -148,17 +148,20 @@ function App() {
     // console.log(`Start time: ${startTime}`);
     // console.log(`Commit time: ${commitTime}`);
   };
-
+  const isOnline = useOnlineStatus();
   return (
+    
     <AppProvider>
-      <ErrorBoundary>
+      {/* <ErrorBoundary> */}
         <div className="App" style={{ padding: "10px" }}>
           {/* Primary Button */}
+          <h1>Learn React</h1>
+          <p>{isOnline ? "🟢 Online" : "🔴 Offline"}</p>
           <Profiler id="App" onRender={onRenderCallback}>
             <RouterProvider router={router} />
           </Profiler>
         </div>
-      </ErrorBoundary>
+      {/* </ErrorBoundary> */}
     </AppProvider>
   );
 }

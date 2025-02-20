@@ -23,7 +23,7 @@ class ErrorBoundary extends React.Component {
 
   componentDidUpdate()
   {
-    console.Console("components updated");
+    console.log("components updated");
   }
 
   componentDidCatch(error, info) {

@@ -6,7 +6,10 @@ function Counter() {
     const count = useSelector((state) => state.counter.count);
     const dispatch = useDispatch();
     const handleClick = (action) => {
+       
         dispatch({ type: action });
+        console.log("action",action)
+        console.log("COUNT",count)
     }
     return ( <div>
          <h1>Hello World</h1>
