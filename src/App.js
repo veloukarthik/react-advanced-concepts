@@ -28,6 +28,7 @@ import RefHook from './Components/Hooks/RefHook';
 import Buttons from './Components/Button';
 import ChildComponent from './Components/ChildComponent';
 import useOnlineStatus from './Components/Hooks/useOnline';
+import Timer from './Components/Timer';
 
 
 function App() {
@@ -76,6 +77,10 @@ function App() {
     {
       path: "/customhooks",
       element: <CustomHooks />,
+    },
+    {
+      path: '/timer',
+      element:<Timer />
     },
     {
       path: "/reducer-hook",
